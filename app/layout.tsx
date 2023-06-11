@@ -1,5 +1,5 @@
 import './globals.css'
-
+import Head from 'next/head'
 import { Footer, Navbar } from '@/components'
 
 export const metadata = {
