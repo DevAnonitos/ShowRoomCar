@@ -5,6 +5,11 @@ import CustomButton from './CustomButton';
 import Image from 'next/image';
 
 const Hero = () => {
+
+    const handleScroll = () => {
+        
+    };
+
     return (
         <>
             <div className='hero'>
@@ -25,7 +30,9 @@ const Hero = () => {
                     </p>
 
                     <CustomButton
-
+                        title='Explore card'
+                        containerStyles='bg-primary-blue text-white rounded-full mt-10'
+                        handleClick={handleScroll}
                     />
                 </div>
                 <div className='hero__image-container'>
