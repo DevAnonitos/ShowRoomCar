@@ -33,6 +33,12 @@
   border-radius: 8px;
 }
 
+@media (max-width: 640px) {
+  .header {
+    display: none;
+  }
+}
+
 /* START: General styles */
 .max-width {
   @apply max-w-[1440px] mx-auto;

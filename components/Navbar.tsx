@@ -27,7 +27,7 @@ const Navbar = () => {
                         />
                     </Link>
 
-                    <header className="text-gray-600 body-font">
+                    <header className="text-gray-600 body-font header cursor-pointer">
                         <div
                             className="container mx-auto flex flex-wrap
                             p-5 flex-col md:flex-row items-center"
@@ -71,9 +71,9 @@ const Navbar = () => {
                                 <svg
                                     fill="none"
                                     stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
                                     className="w-4 h-4 ml-1"
                                     viewBox="0 0 24 24"
                                 >
