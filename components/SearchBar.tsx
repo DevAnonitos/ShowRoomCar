@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 import SearchManufacturer from './SearchManufacturer';
+import { manufacturers } from '../constants/index';
 
 const SearchButton = ({ otherClasses }: { otherClasses: string }) => {
     return (
@@ -26,6 +27,9 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => {
 };
 
 const SearchBar = () => {
+
+    const [manufacturer, setManuFacturer] = useState("");
+
     return (
         <>
             <form
@@ -33,7 +37,10 @@ const SearchBar = () => {
                 onSubmit={() => {}}
             >
                 <div className='searchbar__item'>
-                    <SearchManufacturer />
+                    <SearchManufacturer
+                        manufacturer={manufacturer}
+                        setManufacturer={setManuFacturer}
+                    />
                     <SearchButton
                         otherClasses='sm:hidden'
                     />
