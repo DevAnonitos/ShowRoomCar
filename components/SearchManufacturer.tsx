@@ -80,8 +80,12 @@ const SearchManufacturer = (
                                         <Combobox.Option
                                             key={item}
                                             className={({ active }) =>
-                                                `relative search-manufacturer__option ${
-                                                    active ? "bg-primary-blue text-white" : "text-gray-900"
+                                                `relative search-manufacturer__option
+                                                cursor-pointer
+                                                ${
+                                                    active
+                                                    ? "bg-primary-blue text-white"
+                                                    : "text-gray-900"
                                                 }`
                                             }
                                             value={item}
@@ -106,7 +110,7 @@ const SearchManufacturer = (
                                                                     absolute inset-y-0 left-0
                                                                     flex items-center pl-3
                                                                     ${active? "text-white"
-                                                                    : "text-pribg-primary-purple"}`
+                                                                    : "text-primary bg-primary-purple"}`
                                                                 }
                                                             ></span>
                                                         </>
