@@ -1,6 +1,15 @@
 
 import { MouseEventHandler } from "react";
 
+export interface FilterProps {
+    manufacturers?: string;
+    year?: number;
+    model?: string;
+    limit?: number;
+    fuel?: string;
+}
+
+
 export interface CustomButtonProps {
     isDisabled?: boolean;
     btnType?: "button";
