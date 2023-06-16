@@ -1,8 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
+import { HomeProps } from '@/types';
+import { fuels, yearsOfProduction } from '@/constants';
 import { Hero, SearchBar, CarCard, ShowMore, CustomFilter } from '@/components';
 
-export default function Home() {
+export default function Home({ searchParams }: HomeProps) {
   return (
     <main className='overflow-hidden'>
       <Hero />

@@ -1,6 +1,10 @@
 
 import { MouseEventHandler } from "react";
 
+export interface HomeProps {
+    searchParams: FilterProps;
+}
+
 export interface FilterProps {
     manufacturers?: string;
     year?: number;
