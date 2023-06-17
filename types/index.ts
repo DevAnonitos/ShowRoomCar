@@ -13,6 +13,16 @@ export interface FilterProps {
     fuel?: string;
 }
 
+export interface CarCardProps {
+    model: string;
+    male: string;
+    mpg: number;
+    transmission: string;
+    year: number;
+    drive: string;
+    cityMPG: number;
+}
+
 export interface CarProps {
     city_mpg: number;
     class: string;
