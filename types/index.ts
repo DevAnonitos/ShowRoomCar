@@ -6,7 +6,7 @@ export interface HomeProps {
 }
 
 export interface FilterProps {
-    manufacturers?: string;
+    manufacturer?: string;
     year?: number;
     model?: string;
     limit?: number;
