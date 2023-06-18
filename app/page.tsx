@@ -57,7 +57,6 @@ export default async function Home({ searchParams }: HomeProps) {
               <div className='home__cars-wrapper'>
                 {allCars?.map((car) => (
                   <CarCard
-                    key={car}
                     car={car}
                   />
                 ))}
