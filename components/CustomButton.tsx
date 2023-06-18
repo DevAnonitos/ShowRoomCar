@@ -29,6 +29,8 @@ const CustomButton = ({
                         <Image
                             src={rightIcon}
                             alt='arrow-left'
+                            width={20}
+                            height={20}
                             className='object-contain'
                         />
                     </div>
