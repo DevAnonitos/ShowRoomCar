@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 
 import SearchManufacturer from './SearchManufacturer';
 import { manufacturers } from '../constants/index';
+import { updateSearchParams } from '@/utils';
 
 const SearchButton = ({ otherClasses }: { otherClasses: string }) => {
     return (
@@ -29,12 +30,46 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => {
 const SearchBar = () => {
 
     const [manufacturer, setManuFacturer] = useState("");
+    const [model, setModel] = useState("");
+
+    const router = useRouter();
+
+    const handleSearch = (e: React.FormEvent<HTMLElement>) => {
+        e.preventDefault();
+
+        if(manufacturer.trim() === "" && model.trim() === "") {
+            return alert("Please provide some input");
+        }
+
+        updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
+    };
+
+    const updateSearchParams = (model: string, manufacturer: string) => {
+
+        const searchParams = new URLSearchParams(window.location.search);
+
+        if(model) {
+            searchParams.set("model", model);
+        } else {
+            searchParams.delete("model");
+        }
+
+        if(manufacturer) {
+            searchParams.set("manufacturer", manufacturer);
+        } else {
+            searchParams.delete("manufacturer");
+        }
+
+        const newPathName = `${window.location.pathname}?${searchParams.toString()}`;
+
+        router.push(newPathName);
+    };
 
     return (
         <>
             <form
                 className='searchbar'
-                onSubmit={() => {}}
+                onSubmit={handleSearch}
             >
                 <div className='searchbar__item'>
                     <SearchManufacturer
@@ -57,7 +92,7 @@ const SearchBar = () => {
                         type="text"
                         name='model'
                         value="model"
-                        onChange={(e) => {}}
+                        onChange={(e) => setModel(e.target.value)}
                         placeholder='Tiguan...'
                         className='searchbar__input'
                     />
