@@ -6,14 +6,21 @@ import { useRouter } from 'next/navigation';
 import { Listbox, Transition } from '@headlessui/react';
 
 import { CustomFilterProps } from '@/types';
+import { updateSearchParams } from '@/utils';
 
+interface updateParamsProps {
+    title: string;
+    value: string;
+}
 const CustomFilter = ({ title, options }: CustomFilterProps) => {
 
     const router = useRouter();
     const [selected, setSelected] = useState(options && options.length > 0 ? options[0] : null);
 
     const handleUpdateParams = (e: { title: string; value: string; }) => {
+        const newPathName = updateSearchParams(title, e.value.toLowerCase());
 
+        router.push(newPathName);
     };
 
     return (
@@ -21,8 +28,9 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
             <div className='w-fit'>
                 <Listbox
                     value={selected}
-                    onChange={(e) => {
+                    onChange={(e: updateParamsProps) => {
                         setSelected(e);
+                        handleUpdateParams(e);
                     }}
                 >
                     <div className='relative w-fit z-10'>
@@ -62,7 +70,7 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
                                             className={`block truncate
                                                 ${selected ? "font-medium" : "font-normal"}`}
                                             >
-                                            {option.title}
+                                                {option.title}
                                             </span>
                                         </>
                                         )}
